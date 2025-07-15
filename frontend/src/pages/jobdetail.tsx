@@ -66,7 +66,7 @@ const JobDetail: React.FC = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto fade-in">
+    <div className="max-w-4xl mx-auto fade-in page-transition">
       <div className="card">
         <div className="p-8">
           {/* Header Section */}
@@ -115,7 +115,7 @@ const JobDetail: React.FC = () => {
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">
               Job Description
             </h2>
-            <div className="text-gray-700 whitespace-pre-wrap leading-relaxed bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <div className="job-detail-section text-gray-700 whitespace-pre-wrap leading-relaxed p-6 rounded-lg border border-gray-200">
               {job.description}
             </div>
           </div>
@@ -125,7 +125,7 @@ const JobDetail: React.FC = () => {
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               Requirements
             </h3>
-            <div className="text-gray-700 whitespace-pre-wrap leading-relaxed bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <div className="job-detail-section text-gray-700 whitespace-pre-wrap leading-relaxed p-6 rounded-lg border border-gray-200">
               {job.requirements}
             </div>
           </div>
