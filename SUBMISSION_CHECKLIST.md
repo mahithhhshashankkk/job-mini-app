@@ -81,7 +81,7 @@ cd backend && npm run seed
 ## 📁 Project Structure Overview
 
 ```
-careerboost-job-board/
+job-mini-app/
 ├── 📁 backend/                      # Node.js + Express API
 │   ├── ��� models/                   # MongoDB schemas
 │   ├── 📁 routes/                   # API endpoints
