@@ -162,7 +162,7 @@ npm run seed  # Populates database with 6 sample jobs
 ## 📁 Project Structure
 
 ```
-careerboost-job-board/
+job-mini-app/
 ├── backend/                 # Backend API server
 │   ├── models/             # MongoDB data models
 │   │   ├── job.js         # Job schema
