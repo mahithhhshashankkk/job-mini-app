@@ -137,8 +137,8 @@ const ApplicationForm: React.FC = () => {
           setNotification((prev) => ({ ...prev, isVisible: false }))
         }
       />
-      <div className="max-w-2xl mx-auto fade-in">
-        <div className="card">
+      <div className="max-w-2xl mx-auto fade-in page-transition">
+        <div className="card application-form">
           <div className="p-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
               Apply for Position
