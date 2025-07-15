@@ -65,46 +65,58 @@ const JobDetail: React.FC = () => {
     );
   }
 
-  return (
+    return (
     <div className="max-w-4xl mx-auto fade-in">
       <div className="card">
-        <div className="flex justify-between items-start mb-6">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              {job.title}
-            </h1>
-            <p className="text-xl text-gray-600 mb-1">{job.company}</p>
-            <p className="text-gray-500">{job.location}</p>
+        <div className="p-8">
+                  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-8 gap-6">
+            <div className="flex-1">
+              <h1 className="text-3xl font-bold text-gray-900 mb-4 leading-tight">
+                {job.title}
+              </h1>
+              <p className="text-xl text-gray-600 mb-2 font-semibold">{job.company}</p>
+              <p className="text-gray-500 flex items-center">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                {job.location}
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <span
+                className={`px-4 py-2 rounded-full text-sm font-medium border ${getTypeColor(job.type)}`}
+              >
+                {job.type}
+              </span>
+            </div>
           </div>
-          <span
-            className={`px-3 py-1 rounded-full text-sm font-medium ${getTypeColor(job.type)}`}
-          >
-            {job.type}
-          </span>
-        </div>
 
-        <div className="mb-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">
-            Job Description
-          </h2>
-          <div className="text-gray-700 whitespace-pre-wrap">
-            {job.description}
+          <div className="mb-8">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              Job Description
+            </h2>
+            <div className="text-gray-700 whitespace-pre-wrap leading-relaxed bg-gray-50 p-6 rounded-lg">
+              {job.description}
+            </div>
           </div>
-        </div>
 
-        <div className="mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            Requirements
-          </h3>
-          <div className="text-gray-700 whitespace-pre-wrap">
-            {job.requirements}
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              Requirements
+            </h3>
+            <div className="text-gray-700 whitespace-pre-wrap leading-relaxed bg-gray-50 p-6 rounded-lg">
+              {job.requirements}
+            </div>
           </div>
-        </div>
 
-        <div className="mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Salary</h3>
-          <p className="text-2xl font-bold text-green-600">{job.salary}</p>
-        </div>
+          <div className="mb-10">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Salary</h3>
+            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+              <p className="text-3xl font-bold text-green-600">{job.salary}</p>
+              <p className="text-green-700 text-sm mt-1">Annual salary range</p>
+            </div>
+          </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
