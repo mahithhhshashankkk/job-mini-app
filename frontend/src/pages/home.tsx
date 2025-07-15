@@ -146,7 +146,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Filter buttons */}
-      <div className="flex flex-wrap justify-center gap-3 mb-8">
+      <div className="flex flex-wrap justify-center gap-4 mb-12 slide-in-left">
         <button
           onClick={() => handleFilterChange("")}
           className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
