@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { jobsApi } from '../api';
-import { Job } from '../types';
-import JobCard from '../components/JobCard';
+import React, { useState, useEffect } from "react";
+import { jobsApi } from "../api";
+import { Job } from "../types";
+import JobCard from "../components/jobcard";
 
 const Home: React.FC = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [filter, setFilter] = useState<string>('');
+  const [filter, setFilter] = useState<string>("");
 
   useEffect(() => {
     fetchJobs();
@@ -19,14 +19,14 @@ const Home: React.FC = () => {
       const jobsData = await jobsApi.getJobs(filter || undefined);
       setJobs(jobsData);
     } catch (err) {
-      setError('Failed to fetch jobs');
+      setError("Failed to fetch jobs");
     } finally {
       setLoading(false);
     }
   };
 
   const handleFilterChange = (type: string) => {
-    setFilter(filter === type ? '' : type);
+    setFilter(filter === type ? "" : type);
   };
 
   if (loading) {
@@ -48,24 +48,30 @@ const Home: React.FC = () => {
   return (
     <div>
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Find Your Dream Job</h1>
-        <p className="text-xl text-gray-600">Discover opportunities that match your skills and ambitions</p>
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          Find Your Dream Job
+        </h1>
+        <p className="text-xl text-gray-600">
+          Discover opportunities that match your skills and ambitions
+        </p>
       </div>
 
       {/* Filter buttons */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">
         <button
-          onClick={() => handleFilterChange('')}
-          className={`px-4 py-2 rounded-md ${filter === '' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+          onClick={() => handleFilterChange("")}
+          className={`px-4 py-2 rounded-md ${filter === "" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"}`}
         >
           All Jobs
         </button>
-        {['full-time', 'part-time', 'remote', 'contract'].map((type) => (
+        {["full-time", "part-time", "remote", "contract"].map((type) => (
           <button
             key={type}
             onClick={() => handleFilterChange(type)}
             className={`px-4 py-2 rounded-md capitalize ${
-              filter === type ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+              filter === type
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200 text-gray-700"
             }`}
           >
             {type}
