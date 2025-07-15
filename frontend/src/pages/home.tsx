@@ -88,19 +88,19 @@ const Home: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen page-transition">
       {/* Hero Section */}
       <div className="text-center mb-12 fade-in">
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        <h1 className="hero-title text-5xl md:text-6xl font-bold mb-6 leading-tight">
           Find Your Dream Job
         </h1>
-        <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed font-secondary">
           Discover opportunities that match your skills and ambitions. Join
           thousands of professionals who found their perfect career through
           CareerBoost.
         </p>
-        <div className="flex justify-center items-center space-x-8 text-sm text-gray-500">
-          <div className="flex items-center">
+        <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600">
+          <div className="flex items-center bounce-hover bg-white px-4 py-2 rounded-full shadow-md">
             <svg
               className="w-5 h-5 mr-2 text-green-500"
               fill="currentColor"
@@ -112,9 +112,9 @@ const Home: React.FC = () => {
                 clipRule="evenodd"
               />
             </svg>
-            Verified Companies
+            <span className="font-medium">Verified Companies</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center bounce-hover bg-white px-4 py-2 rounded-full shadow-md">
             <svg
               className="w-5 h-5 mr-2 text-blue-500"
               fill="currentColor"
@@ -126,9 +126,9 @@ const Home: React.FC = () => {
                 clipRule="evenodd"
               />
             </svg>
-            Remote Friendly
+            <span className="font-medium">Remote Friendly</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center bounce-hover bg-white px-4 py-2 rounded-full shadow-md">
             <svg
               className="w-5 h-5 mr-2 text-purple-500"
               fill="currentColor"
@@ -140,7 +140,7 @@ const Home: React.FC = () => {
                 clipRule="evenodd"
               />
             </svg>
-            Quick Apply
+            <span className="font-medium">Quick Apply</span>
           </div>
         </div>
       </div>
