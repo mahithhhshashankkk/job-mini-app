@@ -145,10 +145,7 @@ const ApplicationForm: React.FC = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
+            <label htmlFor="email" className="form-label">
               Email Address *
             </label>
             <input
@@ -157,9 +154,7 @@ const ApplicationForm: React.FC = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.email ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`form-input ${errors.email ? "form-input-error" : ""}`}
               placeholder="Enter your email address"
             />
             {errors.email && (
@@ -168,10 +163,7 @@ const ApplicationForm: React.FC = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="resume_link"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
+            <label htmlFor="resume_link" className="form-label">
               Resume Link *
             </label>
             <input
@@ -180,9 +172,7 @@ const ApplicationForm: React.FC = () => {
               name="resume_link"
               value={formData.resume_link}
               onChange={handleChange}
-              className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.resume_link ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`form-input ${errors.resume_link ? "form-input-error" : ""}`}
               placeholder="https://example.com/your-resume.pdf"
             />
             {errors.resume_link && (
@@ -191,10 +181,7 @@ const ApplicationForm: React.FC = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="cover_letter"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
+            <label htmlFor="cover_letter" className="form-label">
               Cover Letter *
             </label>
             <textarea
@@ -203,9 +190,7 @@ const ApplicationForm: React.FC = () => {
               value={formData.cover_letter}
               onChange={handleChange}
               rows={8}
-              className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.cover_letter ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`form-input ${errors.cover_letter ? "form-input-error" : ""}`}
               placeholder="Write your cover letter here (minimum 50 characters)..."
             />
             {errors.cover_letter && (
