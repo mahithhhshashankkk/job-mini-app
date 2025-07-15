@@ -12,7 +12,28 @@ const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  timeout: 10000, // 10 second timeout
 });
+
+// Add response interceptor for better error handling
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.code === "ECONNABORTED") {
+      throw new Error("Request timeout - please check your connection");
+    }
+    if (error.response?.status >= 500) {
+      throw new Error("Server error - please try again later");
+    }
+    if (error.response?.status === 404) {
+      throw new Error("Resource not found");
+    }
+    if (!error.response) {
+      throw new Error("Network error - please check your connection");
+    }
+    throw error;
+  },
+);
 
 export const jobsApi = {
   getJobs: async (type?: string): Promise<Job[]> => {
