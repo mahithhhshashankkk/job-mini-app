@@ -44,8 +44,9 @@ const JobDetail: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="flex flex-col justify-center items-center h-64">
+        <div className="spinner"></div>
+        <p className="mt-4 text-gray-600">Loading job details...</p>
       </div>
     );
   }
@@ -65,8 +66,8 @@ const JobDetail: React.FC = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="bg-white rounded-lg shadow-md p-8">
+    <div className="max-w-4xl mx-auto fade-in">
+      <div className="card">
         <div className="flex justify-between items-start mb-6">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -105,17 +106,43 @@ const JobDetail: React.FC = () => {
           <p className="text-2xl font-bold text-green-600">{job.salary}</p>
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <Link
             to={`/jobs/${job._id}/apply`}
-            className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-200 font-medium"
+            className="btn-primary inline-flex items-center justify-center"
           >
+            <svg
+              className="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+              />
+            </svg>
             Apply Now
           </Link>
           <Link
             to="/"
-            className="bg-gray-200 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-300 transition duration-200 font-medium"
+            className="btn-secondary inline-flex items-center justify-center"
           >
+            <svg
+              className="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
             Back to Jobs
           </Link>
         </div>
