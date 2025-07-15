@@ -109,3 +109,30 @@ h3 {
 .custom-scroll::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* Responsive spacing */
+@media (max-width: 640px) {
+  .card {
+    @apply mx-2;
+  }
+
+  .card-content {
+    @apply p-6;
+  }
+
+  .form-input {
+    @apply py-3;
+  }
+}
+
+/* Ensure consistent card heights */
+.job-grid {
+  display: grid;
+  grid-template-rows: masonry;
+}
+
+@supports not (grid-template-rows: masonry) {
+  .job-grid .card {
+    @apply flex flex-col h-full;
+  }
+}
