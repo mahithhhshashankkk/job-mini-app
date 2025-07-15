@@ -1,11 +1,19 @@
 import axios from "axios";
 import { Job, Application, ApplicationWithJob } from "../types";
 
-// Use relative URL in production, localhost in development
-const API_BASE_URL =
-  window.location.hostname === "localhost"
-    ? "http://localhost:5000/api"
-    : "/api";
+// API configuration for different environments
+const API_BASE_URL = (() => {
+  // Development
+  if (window.location.hostname === "localhost") {
+    return "http://localhost:5000/api";
+  }
+
+  // Production - you'll need to update this with your backend URL once deployed
+  // For now, using a placeholder that you'll replace
+  const BACKEND_URL =
+    import.meta.env.VITE_API_URL || "https://your-backend-url.railway.app/api";
+  return BACKEND_URL;
+})();
 
 const api = axios.create({
   baseURL: API_BASE_URL,
