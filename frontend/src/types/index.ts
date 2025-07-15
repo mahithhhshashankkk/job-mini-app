@@ -20,7 +20,7 @@ export interface Application {
   appliedAt?: string;
 }
 
-export interface ApplicationWithJob extends Application {
+export interface ApplicationWithJob extends Omit<Application, "job_id"> {
   job_id: {
     _id: string;
     title: string;
