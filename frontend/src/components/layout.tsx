@@ -88,7 +88,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
 
-      <footer className="bg-white border-t border-gray-200 mt-16">
+      <footer className="bg-white border-t border-gray-200 mt-16 backdrop-blur-md bg-opacity-95">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
@@ -103,15 +103,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="text-gray-900 font-semibold">CareerBoost</span>
+              <span className="text-gray-900 font-semibold font-accent">
+                CareerBoost
+              </span>
             </div>
-            <p className="text-center text-gray-600">
+            <p className="text-center text-gray-600 font-secondary">
               © 2024 CareerBoost. Made with ❤️ for job seekers everywhere.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
+              {/* Facebook */}
               <a
                 href="#"
-                className="text-gray-400 hover:text-blue-600 transition-colors"
+                className="social-icon social-facebook text-gray-400 transition-all duration-300 transform hover:scale-125 p-2 rounded-full hover:bg-blue-50"
               >
                 <svg
                   className="w-5 h-5"
@@ -125,21 +128,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   />
                 </svg>
               </a>
+              {/* X (formerly Twitter) */}
               <a
                 href="#"
-                className="text-gray-400 hover:text-blue-600 transition-colors"
+                className="social-icon social-x text-gray-400 transition-all duration-300 transform hover:scale-125 p-2 rounded-full hover:bg-gray-50"
               >
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
-                  viewBox="0 0 20 20"
+                  viewBox="0 0 24 24"
                 >
-                  <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
+              {/* LinkedIn */}
               <a
                 href="#"
-                className="text-gray-400 hover:text-blue-600 transition-colors"
+                className="social-icon social-linkedin text-gray-400 transition-all duration-300 transform hover:scale-125 p-2 rounded-full hover:bg-blue-50"
               >
                 <svg
                   className="w-5 h-5"
