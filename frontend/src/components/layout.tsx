@@ -7,7 +7,19 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative">
+      {/* Floating Background Icons */}
+      <div className="floating-icons">
+        <div className="floating-icon laptop">💻</div>
+        <div className="floating-icon money">💰</div>
+        <div className="floating-icon laptop">💻</div>
+        <div className="floating-icon money">💵</div>
+        <div className="floating-icon laptop">💻</div>
+        <div className="floating-icon money">💰</div>
+        <div className="floating-icon laptop">💻</div>
+        <div className="floating-icon money">💴</div>
+        <div className="floating-icon laptop">💻</div>
+      </div>
       <nav className="bg-white shadow-lg border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
