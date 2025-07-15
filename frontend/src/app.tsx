@@ -1,10 +1,10 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import JobDetail from './pages/JobDetail';
-import ApplicationForm from './pages/ApplicationForm';
-import Admin from './pages/Admin';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/layout";
+import Home from "./pages/home";
+import JobDetail from "./pages/jobdetail";
+import ApplicationForm from "./pages/applicationform";
+import Admin from "./pages/admin";
 
 function App() {
   return (
