@@ -95,7 +95,8 @@ const API_BASE_URL = (() => {
   // Production - you'll need to update this with your backend URL once deployed
   // For now, using a placeholder that you'll replace
   const BACKEND_URL =
-    import.meta.env.VITE_API_URL || "https://your-backend-url.railway.app/api";
+    (import.meta as any).env?.VITE_API_URL ||
+    "https://your-backend-url.railway.app/api";
   return BACKEND_URL;
 })();
 

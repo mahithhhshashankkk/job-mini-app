@@ -1,4 +1,4 @@
-import React from "react";
+// Remove unused React import as it's not needed in newer React versions
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
 import Home from "./pages/home";
