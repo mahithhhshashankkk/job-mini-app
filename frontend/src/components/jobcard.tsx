@@ -23,10 +23,11 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
   };
 
   return (
-    <div className="card fade-in">
-      <div className="card-content">
-        <div className="flex justify-between items-start mb-4">
-          <h3 className="text-xl font-semibold text-gray-900 flex-1 pr-3 leading-tight">
+    <div className="card fade-in h-full">
+      <div className="p-8 flex flex-col h-full">
+        {/* Header section with title and badge */}
+        <div className="flex justify-between items-start mb-6">
+          <h3 className="text-xl font-semibold text-gray-900 flex-1 pr-4 leading-tight">
             {job.title}
           </h3>
           <span
@@ -36,10 +37,11 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
           </span>
         </div>
 
-        <div className="mb-4">
-          <p className="text-gray-600 font-semibold text-lg mb-1 flex items-center">
+        {/* Company and location section */}
+        <div className="mb-6">
+          <p className="text-gray-600 font-semibold text-lg mb-2 flex items-center">
             <svg
-              className="w-5 h-5 mr-2 text-gray-500"
+              className="w-5 h-5 mr-3 text-gray-500 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -55,7 +57,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
           </p>
           <p className="text-gray-500 flex items-center">
             <svg
-              className="w-4 h-4 mr-2"
+              className="w-4 h-4 mr-3 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -77,14 +79,18 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
           </p>
         </div>
 
-        <p className="text-gray-700 mb-6 line-clamp-2 leading-relaxed text-sm">
-          {job.description}
-        </p>
+        {/* Description section - flexible to take remaining space */}
+        <div className="flex-1 mb-8">
+          <p className="text-gray-700 line-clamp-3 leading-relaxed text-sm">
+            {job.description}
+          </p>
+        </div>
 
-        <div className="flex justify-between items-center">
-          <div className="flex items-center text-green-600 font-semibold">
+        {/* Footer section with salary and button */}
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mt-auto">
+          <div className="flex items-center text-green-600 font-semibold text-lg">
             <svg
-              className="w-5 h-5 mr-1"
+              className="w-5 h-5 mr-2 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -96,15 +102,15 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
                 d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
               />
             </svg>
-            {job.salary}
+            <span className="truncate">{job.salary}</span>
           </div>
           <Link
             to={`/jobs/${job._id}`}
-            className="btn-primary text-sm inline-flex items-center"
+            className="btn-primary text-sm inline-flex items-center justify-center px-6 py-3 flex-shrink-0"
           >
             View Details
             <svg
-              className="w-4 h-4 ml-1"
+              className="w-4 h-4 ml-2"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
