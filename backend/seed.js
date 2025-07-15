@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Job = require("./models/job");
+const migration = require("./migrations/001_initial_setup");
 require("dotenv").config();
 
 const seedJobs = [
@@ -118,7 +119,7 @@ Requirements:
     requirements: `• Bachelor's degree in Computer Science or related field
 • 3+ years of DevOps or cloud infrastructure experience
 • Strong experience with AWS services (EC2, S3, RDS, Lambda)
-�� Proficiency in containerization (Docker, Kubernetes)
+• Proficiency in containerization (Docker, Kubernetes)
 • Experience with CI/CD tools (Jenkins, GitLab CI, GitHub Actions)
 • Knowledge of Infrastructure as Code tools
 • Scripting skills (Bash, Python, or similar)
@@ -193,34 +194,63 @@ Requirements:
 async function seedDatabase() {
   try {
     // Connect to MongoDB
-    await mongoose.connect(
-      process.env.MONGODB_URI || "mongodb://localhost:27017/jobboard",
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      },
-    );
+    const mongoUri =
+      process.env.MONGODB_URI || "mongodb://localhost:27017/jobboard";
+    console.log("🔌 Connecting to MongoDB...");
 
-    console.log("Connected to MongoDB...");
-
-    // Clear existing jobs
-    await Job.deleteMany({});
-    console.log("Cleared existing jobs...");
-
-    // Insert seed jobs
-    const insertedJobs = await Job.insertMany(seedJobs);
-    console.log(`Successfully seeded ${insertedJobs.length} jobs!`);
-
-    console.log("Jobs seeded:");
-    insertedJobs.forEach((job, index) => {
-      console.log(`${index + 1}. ${job.title} at ${job.company} (${job.type})`);
+    await mongoose.connect(mongoUri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     });
+
+    console.log("✅ Connected to MongoDB");
+    console.log(`📍 Database: ${mongoose.connection.name}`);
+
+    // Run migration
+    console.log("🔄 Running database migrations...");
+    const needsSeeding = await migration.up();
+
+    if (needsSeeding) {
+      console.log("🌱 Seeding database with initial data...");
+
+      // Clear existing jobs (only if we're seeding)
+      await Job.deleteMany({});
+      console.log("🧹 Cleared existing jobs");
+
+      // Insert seed jobs
+      const insertedJobs = await Job.insertMany(seedJobs);
+      console.log(`✅ Successfully seeded ${insertedJobs.length} jobs!`);
+
+      console.log("\n📋 Jobs seeded:");
+      insertedJobs.forEach((job, index) => {
+        console.log(
+          `   ${index + 1}. ${job.title} at ${job.company} (${job.type})`,
+        );
+      });
+
+      console.log(
+        `\n🎉 Database successfully initialized with ${insertedJobs.length} jobs!`,
+      );
+    } else {
+      console.log("ℹ️  Database already contains data, skipping seed");
+    }
 
     // Close connection
     await mongoose.connection.close();
-    console.log("Database connection closed.");
+    console.log("🔌 Database connection closed");
   } catch (error) {
-    console.error("Error seeding database:", error);
+    console.error("❌ Error seeding database:", error.message);
+    console.error(
+      "💡 Make sure MongoDB is running and the connection string is correct",
+    );
+
+    if (error.name === "MongoNetworkError") {
+      console.error("🔧 Check if MongoDB is installed and running:");
+      console.error("   - macOS: brew services start mongodb-community");
+      console.error("   - Linux: sudo systemctl start mongod");
+      console.error("   - Windows: Start MongoDB service");
+    }
+
     process.exit(1);
   }
 }
