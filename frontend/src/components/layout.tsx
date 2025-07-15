@@ -20,12 +20,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="floating-icon money">💴</div>
         <div className="floating-icon laptop">💻</div>
       </div>
-      <nav className="bg-white shadow-lg border-b border-gray-200">
+      <nav className="bg-white shadow-lg border-b border-gray-200 backdrop-blur-md bg-opacity-95 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link
               to="/"
-              className="flex items-center text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors"
+              className="flex items-center text-2xl font-bold transition-all duration-300 transform hover:scale-105 hero-title"
             >
               <svg
                 className="w-8 h-8 mr-2"
@@ -40,10 +40,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </svg>
               CareerBoost
             </Link>
-            <div className="flex space-x-1">
+            <div className="flex space-x-2">
               <Link
                 to="/"
-                className="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-200 inline-flex items-center"
+                className="nav-link px-6 py-3 text-gray-700 hover:text-blue-600 rounded-lg transition-all duration-300 inline-flex items-center font-medium"
               >
                 <svg
                   className="w-4 h-4 mr-2"
@@ -62,7 +62,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </Link>
               <Link
                 to="/admin"
-                className="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all duration-200 inline-flex items-center"
+                className="nav-link px-6 py-3 text-gray-700 hover:text-blue-600 rounded-lg transition-all duration-300 inline-flex items-center font-medium"
               >
                 <svg
                   className="w-4 h-4 mr-2"
