@@ -1,0 +1,37 @@
+{
+  "name": "careerboost-job-board",
+  "version": "1.0.0",
+  "description": "A modern full-stack job board application with React, TypeScript, Node.js, and MongoDB",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "backend:dev": "cd backend && npm run dev",
+    "frontend:dev": "cd frontend && npm run dev",
+    "backend:install": "cd backend && npm install",
+    "frontend:install": "cd frontend && npm install",
+    "install:all": "npm run backend:install && npm run frontend:install",
+    "build": "cd frontend && npm run build",
+    "seed": "cd backend && npm run seed",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm run preview"
+  },
+  "keywords": [
+    "job-board",
+    "react",
+    "typescript",
+    "nodejs",
+    "express",
+    "mongodb",
+    "tailwindcss",
+    "vite"
+  ],
+  "author": "POOSA MAHITH SHASHANK",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
