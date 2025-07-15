@@ -114,7 +114,7 @@ const Home: React.FC = () => {
               : "bg-white text-gray-700 border border-gray-300 hover:border-blue-300 hover:shadow-md"
           }`}
         >
-          All Jobs ({jobs.length})
+          All Jobs
         </button>
         {["full-time", "part-time", "remote", "contract"].map((type) => (
           <button
