@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DemoBanner from "./demobanner";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,6 +9,9 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative">
+      {/* Demo Banner */}
+      <DemoBanner />
+
       {/* Floating Background Icons */}
       <div className="floating-icons">
         <div className="floating-icon laptop">💻</div>
