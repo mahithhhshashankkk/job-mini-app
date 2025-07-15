@@ -51,7 +51,7 @@ const Admin: React.FC = () => {
   }
 
   return (
-    <div className="fade-in">
+    <div className="fade-in page-transition">
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Job Applications
@@ -82,7 +82,7 @@ const Admin: React.FC = () => {
           <p className="text-gray-600">No applications submitted yet.</p>
         </div>
       ) : (
-        <div className="card overflow-hidden">
+        <div className="card overflow-hidden admin-table">
           <div className="overflow-x-auto custom-scroll">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
