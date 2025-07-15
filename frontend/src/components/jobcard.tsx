@@ -31,7 +31,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
             {job.title}
           </h3>
           <span
-            className={`px-3 py-1 rounded-full text-xs font-medium flex-shrink-0 border ${getTypeColor(job.type)}`}
+            className={`type-badge px-3 py-1 rounded-full text-xs font-medium flex-shrink-0 border ${getTypeColor(job.type)}`}
           >
             {job.type}
           </span>
@@ -89,7 +89,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
         {/* Footer section with salary and button */}
         <div className="mt-auto">
           {/* Salary section */}
-          <div className="flex items-center text-green-600 font-semibold text-lg mb-4">
+          <div className="flex items-center text-green-600 font-semibold text-lg mb-4 salary-highlight">
             <svg
               className="w-5 h-5 mr-2 flex-shrink-0"
               fill="none"
@@ -103,7 +103,7 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
                 d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
               />
             </svg>
-            <span className="truncate">{job.salary}</span>
+            <span className="truncate font-accent">{job.salary}</span>
           </div>
 
           {/* Button section - full width and properly contained */}
