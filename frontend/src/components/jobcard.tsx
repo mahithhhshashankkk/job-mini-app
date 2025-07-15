@@ -87,8 +87,9 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
         </div>
 
         {/* Footer section with salary and button */}
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mt-auto">
-          <div className="flex items-center text-green-600 font-semibold text-lg">
+        <div className="mt-auto">
+          {/* Salary section */}
+          <div className="flex items-center text-green-600 font-semibold text-lg mb-4">
             <svg
               className="w-5 h-5 mr-2 flex-shrink-0"
               fill="none"
@@ -104,25 +105,29 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
             </svg>
             <span className="truncate">{job.salary}</span>
           </div>
-          <Link
-            to={`/jobs/${job._id}`}
-            className="btn-primary text-sm inline-flex items-center justify-center px-6 py-3 flex-shrink-0"
-          >
-            View Details
-            <svg
-              className="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+
+          {/* Button section - full width and properly contained */}
+          <div className="w-full">
+            <Link
+              to={`/jobs/${job._id}`}
+              className="job-card-btn w-full inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg group"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </Link>
+              <span>View Details</span>
+              <svg
+                className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
