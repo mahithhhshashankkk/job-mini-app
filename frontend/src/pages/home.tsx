@@ -149,25 +149,96 @@ const Home: React.FC = () => {
       <div className="flex flex-wrap justify-center gap-4 mb-12 slide-in-left">
         <button
           onClick={() => handleFilterChange("")}
-          className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
-            filter === ""
-              ? "bg-blue-600 text-white shadow-lg"
-              : "bg-white text-gray-700 border border-gray-300 hover:border-blue-300 hover:shadow-md"
-          }`}
+          className={`filter-btn font-accent ${filter === "" ? "active" : ""}`}
         >
-          All Jobs
+          <span className="flex items-center">
+            <svg
+              className="w-4 h-4 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+              />
+            </svg>
+            All Jobs
+          </span>
         </button>
         {["full-time", "part-time", "remote", "contract"].map((type) => (
           <button
             key={type}
             onClick={() => handleFilterChange(type)}
-            className={`px-6 py-3 rounded-lg font-medium capitalize transition-all duration-200 ${
-              filter === type
-                ? "bg-blue-600 text-white shadow-lg"
-                : "bg-white text-gray-700 border border-gray-300 hover:border-blue-300 hover:shadow-md"
+            className={`filter-btn font-accent capitalize ${
+              filter === type ? "active" : ""
             }`}
           >
-            {type}
+            <span className="flex items-center">
+              {type === "full-time" && (
+                <svg
+                  className="w-4 h-4 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              )}
+              {type === "part-time" && (
+                <svg
+                  className="w-4 h-4 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              )}
+              {type === "remote" && (
+                <svg
+                  className="w-4 h-4 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              )}
+              {type === "contract" && (
+                <svg
+                  className="w-4 h-4 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              )}
+              {type}
+            </span>
           </button>
         ))}
       </div>
